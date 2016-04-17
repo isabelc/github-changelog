@@ -3,12 +3,10 @@
 Plugin Name: Github Changelog
 Plugin URI: http://isabelcastillo.com/docs/category/github-changelog-wordpress-plugin
 Description: Display the release notes for all releases of a GitHub-hosted repo.
-Version: 1.0
+Version: 1.1
 Author: Isabel Castillo
 Author URI: http://isabelcastillo.com
 License: GPL2
-Text Domain: github-latest-release
-Domain Path: languages
 
 Copyright 2015-2016 Isabel Castillo
 
@@ -45,35 +43,26 @@ function gc_do_label_tags( $label, $tag, $repo ) {
 }
 
 /**
- * Query the GitHub API for a repo's releases and set transient.
+ * Query the GitHub API for a repo's releases
  *
  */
 function gc_get_github_api_releases( $username, $repo, $accessToken = '' ) {
 
-	// Only query the GitHub APi if the data is not in our transient 
-
-	if ( false === ( $github_api_result = get_transient( 'gc_github_api_result' ) ) ) {
-
-		// Query the GitHub API
-		$url = "https://api.github.com/repos/{$username}/{$repo}/releases";
+	// Query the GitHub API
+	$url = "https://api.github.com/repos/{$username}/{$repo}/releases";
 		 
-		// Access token for private repos
-		if ( ! empty( $accessToken ) ) {
-			$url = esc_url_raw( add_query_arg( array( "access_token" => $accessToken ), $url ) );
-		}
-		 
-		$github_api_result = wp_remote_retrieve_body( wp_remote_get( $url ) );
-
-		if ( ! empty( $github_api_result ) ) {
-			$github_api_result = @json_decode( $github_api_result );
-		}
-		set_transient( 'gc_github_api_result', $github_api_result, HOUR_IN_SECONDS );
-
+	// Access token for private repos
+	if ( ! empty( $accessToken ) ) {
+		$url = esc_url_raw( add_query_arg( array( "access_token" => $accessToken ), $url ) );
 	}
+		 
+	$github_api_result = wp_remote_retrieve_body( wp_remote_get( $url ) );
 
+	if ( ! empty( $github_api_result ) ) {
+		$github_api_result = @json_decode( $github_api_result );
+	}
 	return $github_api_result;
 }
-
 
 /**
  * Returns a changelog for a GitHub repo consisting of all Release notes for all releases.
