@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Github Changelog
-Plugin URI: http://isabelcastillo.com/docs/category/github-changelog-wordpress-plugin
+Plugin URI: https://isabelcastillo.com/free-plugins/github-changelog
 Description: Display the release notes for all releases of a GitHub-hosted repo.
 Version: 1.1
 Author: Isabel Castillo
-Author URI: http://isabelcastillo.com
+Author URI: https://isabelcastillo.com
 License: GPL2
 
 Copyright 2015-2016 Isabel Castillo
