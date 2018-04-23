@@ -2,13 +2,13 @@
 /*
 Plugin Name: Github Changelog
 Plugin URI: https://isabelcastillo.com/free-plugins/github-changelog
-Description: Display the release notes for all releases of a GitHub-hosted repo.
-Version: 1.1
+Description: Display the changelog or download link for a GitHub-hosted repo.
+Version: 1.1.1
 Author: Isabel Castillo
 Author URI: https://isabelcastillo.com
 License: GPL2
 
-Copyright 2015-2016 Isabel Castillo
+Copyright 2015-2018 Isabel Castillo
 
 Github Changelog is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License, version 2, as 
