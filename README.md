@@ -45,9 +45,11 @@ Replace `yourname` with your GitHub username. Replace `Name-Of-Your-Repo` with t
 By default, the link will have the anchor text: 
 
 > Download {Name-Of-Your-Repo} {version}
+
+
 For example:
 
->Download My-cool-repo 2.0 
+> Download My-cool-repo 2.0 
 
 You can customize the label by adding the “label” parameter to the shortcode:
 
